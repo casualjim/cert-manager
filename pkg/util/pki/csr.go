@@ -128,6 +128,7 @@ func GenerateTemplate(issuer v1alpha1.GenericIssuer, crt *v1alpha1.Certificate, 
 		SerialNumber:          serialNumber,
 		SignatureAlgorithm:    sigAlgo,
 		IsCA:                  crt.Spec.IsCA,
+		ExtKeyUsage:           []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth, x509.ExtKeyUsageServerAuth},
 		Subject: pkix.Name{
 			Organization: organization,
 			CommonName:   commonName,
